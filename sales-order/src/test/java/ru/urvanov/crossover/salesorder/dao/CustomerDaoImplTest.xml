@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <customer id="101" code="01" name="Customer 1" phone1="+7000000000" phone2="+7000000000" address="address1" current_credit="100.00" credit_limit="1000"/>
+  <customer id="102" code="02" name="Max Tolstoy" phone1="+7111111111" phone2="+7111111111" address="address2" current_credit="200.00" credit_limit="1000" />
+  <customer id="103" code="03" name="Leonid" phone1="+7222222222" phone2="+7222222222"  address="address3" current_credit="300.00" credit_limit="1000" />
+  
+  
+</dataset>

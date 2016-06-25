@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <product id="101" code="01" description="Product 01" price="45.00" quantity="3" />
+  <product id="102" code="02" description="Product 02" price="99.00" quantity="10" />
+  <product id="103" code="03" description="Product 03" price="12.00" quantity="7" />
+  
+</dataset>

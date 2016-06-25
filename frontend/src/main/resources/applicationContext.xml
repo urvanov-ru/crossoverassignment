@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="classpath:application.properties" />
+
+
+    <bean id="customerService"
+        class="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean">
+        <property name="serviceUrl" value="${server.url}/api/CustomerService" />
+        <property name="serviceInterface"
+            value="ru.urvanov.crossover.salesorder.service.CustomerService" />
+        <property name="httpInvokerRequestExecutor">
+            <ref bean="httpInvokerRequestExecutor" />
+        </property>
+    </bean>
+
+    <bean id="productService"
+        class="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean">
+        <property name="serviceUrl" value="${server.url}/api/ProductService" />
+        <property name="serviceInterface"
+            value="ru.urvanov.crossover.salesorder.service.ProductService" />
+        <property name="httpInvokerRequestExecutor">
+            <ref bean="httpInvokerRequestExecutor" />
+        </property>
+    </bean>
+
+    <bean id="saleOrderService"
+        class="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean">
+        <property name="serviceUrl" value="${server.url}/api/SaleOrderService" />
+        <property name="serviceInterface"
+            value="ru.urvanov.crossover.salesorder.service.SaleOrderService" />
+        <property name="httpInvokerRequestExecutor">
+            <ref bean="httpInvokerRequestExecutor" />
+        </property>
+    </bean>
+
+    <bean id="httpInvokerRequestExecutor"
+        class="org.springframework.remoting.httpinvoker.HttpComponentsHttpInvokerRequestExecutor">
+    </bean>
+
+</beans>

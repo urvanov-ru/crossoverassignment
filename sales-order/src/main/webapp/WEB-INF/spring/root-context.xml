@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:task="http://www.springframework.org/schema/task"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
+
+    <!-- Root Context: defines shared resources visible who all other web 
+        components -->
+
+    <context:property-placeholder location="classpath:application.properties"
+        ignore-unresolvable="true" />
+
+    <import resource="spring-dataSource.xml" />
+    <import resource="spring-tx.xml" />
+
+    <context:component-scan
+        base-package="ru.urvanov.crossover.salesorder.service,ru.urvanov.crossover.salesorder.dao" />
+
+    <!-- Database migration tool -->
+    <bean id="flyway" class="org.flywaydb.core.Flyway" init-method="migrate">
+        <property name="dataSource" ref="dataSource" />
+        <property name="locations">
+            <list>
+                <value>db/migration</value>
+            </list>
+        </property>
+    </bean>
+
+</beans>
